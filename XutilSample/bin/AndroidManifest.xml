@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lidroid.xutils.sample"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <permission
+        android:name="android.permission.mypermission.READ"
+        android:description="@string/test"
+        android:protectionLevel="normal" >
+    </permission>
+
+   <!--  <uses-permission android:name="android.permission.mypermission.READ" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".MyActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ImageActivity" />
+        <activity android:name=".DownloadListActivity"
+            android:permission="android.permission.mypermission.READ" />
+        <activity android:name=".SecondDownloadListActivity" />
+
+        <service android:name=".download.DownloadService" >
+            <intent-filter>
+                <action android:name="download.service.action" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
